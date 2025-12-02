@@ -137,12 +137,12 @@ console.log(str==="javascript" ? "JavaScript" : "Not JavaScript");
 
 // looping dari dari kecil ke besar
 for(let i = 0; i < 10; i++) {
-    console.log("Hello world");
+    console.log(i);
 };
 
 //looping dari beras ke kecil
 for(let i = 10; i > 0; i--) {
-    console.log("Hello world");
+    console.log(i);
 };  
 
 //WHILE LOOP -> mempunyai 2 statement
@@ -180,7 +180,7 @@ while (true) {
 // CONTINUE
 // untuk melanjutkan looping tanpa menghentikan / melakukan skip
 for (let i = 0; i < 5; i++) {
-    if (i === 3)  continue;
+    if (i === 2)  continue;
     
     console.log(i);
 };
@@ -189,6 +189,10 @@ for (let i = 0; i < 5; i++) {
 // cetak angka genap dari angka 1 sampai 20 menggunakan looping
 for(let i = 1; i <= 20; i++) {
     if(i % 2 === 0) console.log(i);
+};
+// cetak angka ganjil dari angka 1 sampai 20 menggunakan looping
+for(let i = 1; i <= 20; i++) {
+    if(i % 2 === 1) console.log(i);
 };
 
 

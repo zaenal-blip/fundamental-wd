@@ -53,3 +53,26 @@ for (let i = 2; i <= N3; i++) {
   b = next;
 }
 
+
+// ==================== REVIEW EXCERCISE ====================
+/*
+Write a code to check whether the number is odd or even
+ ○ Example: 25 → odd number, 2 → even number
+*/
+
+let angka :number = 2;
+if(angka % 2 === 0) {
+    console.log("Ini adalah bilangan genap");
+    } else {
+        console.log("Ini adalah bilangan ganjil");
+    };
+
+/* Write a code to check whether the number is prime number or not */
+let angka2 = 12;
+let isPrime1 = angka2 > 1;
+for (let i = 2; i < angka2 && isPrime1; i++) {
+  if (angka2 % i === 0) {
+    isPrime1 = false;
+  }
+}
+console.log(isPrime1 ? "Prima" : "Bukan prima");
