@@ -27,17 +27,17 @@ for (let i = 1; i <= rows; i++) { // menentukan barisnya, jika 5 maka barisnya a
 };
 
 // excercise 2
-for(let i = 1; i <= 30 ; i++){
-    if (i % 3 === 0 && i % 5 === 0) {
-        const test = ("FizzBuzz");
-    } else if (i % 3 === 0) {
-        const test1 = ("Fizz");
-    } else if (i % 5 === 0) {
-        const test2 = ("Buzz");
-    } else {
-        console.log(i);
-    }
-}
+// for(let i = 1; i <= 30 ; i++){
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         const test = ("FizzBuzz");
+//     } else if (i % 3 === 0) {
+//         const test1 = ("Fizz");
+//     } else if (i % 5 === 0) {
+//         const test2 = ("Buzz");
+//     } else {
+//         console.log(i);
+//     }
+// }
 
 for (let i = 1; i <= 20; i++) {
   let output =
@@ -79,3 +79,37 @@ function splitString(str: string): string[] {
 let message = "Hello world";
 let words = splitString(message);
 console.log(words);
+
+
+
+
+// excercise
+// Mencari nilai TERKECIL, TERBESAR, dan RATA-RATA di sebuah array
+let Number = [12, 5, 23, 18, 4, 45, 32];
+let min = Math.min(...Number);
+let max = Math.max(...Number);
+let average = Number.reduce((acc, curr) => acc + curr, 0) / Number.length;
+console.log("Nilai terkecil: " + min);
+console.log("Nilai terbesar: " + max);
+console.log("Rata-rata: " + average);
+
+/* Write a function that takes an array of words and returns a string by concatenating the words in the array
+ separated by commas and - the last word - by an 'and'
+*/
+
+// let fruits =  ["apple", "banana", "cherry", "date"];
+// let lastWord = words.pop;
+// let result = fruits.join(", ");
+// const hasil= result + ` and ${lastWord}`;
+// console.log(result)
+let fruits = ["apple", "banana", "cherry", "date"];
+let result = joinWords(fruits);
+function joinWords(words: string[]): string{
+    let lastWord = words.pop();
+    let result = words.join(", ");
+    if (lastWord) {
+        result += ` and ${lastWord}`;
+    }
+    return result;
+}
+console.log(result);
