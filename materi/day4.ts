@@ -181,3 +181,106 @@ const words5: string[] = ["Hello", "World", "test"];
 console.log(words5);
 words5.unshift("New Value");
 console.log(words5);
+
+// SPLICE -> menghapus dan menambahkan value di dalam array
+// syntaks -> splice(startIndex, berapayangmaudidelete, item)
+const months: string[]= ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+// menambahkan data
+months.splice(6, 0, "juli")
+console.log(months)
+
+// menghapus data
+months.splice(0, 1)
+console.log(months)
+
+// edit data
+months.splice(5, 1, "July")
+console.log(months)
+
+// untuk meng copy data array dan tidak ke ubah
+const bulan: string[] = [...months];
+console.log(bulan);
+bulan.splice(5, 1)
+console.log(bulan);
+
+// SLICE -> mereturn array baru berdasarkan start index dan end indexs
+// syntaks -> slice(startIndex, endIndex);
+const fruits2: string [] = ["apple", "banana", "cherry","orange"];
+console.log(fruits2.slice(1, 3)); // ["banana", "cherry"]
+
+// SORT -> Mengurutkan isi array berupa string atau number
+// sort((a, b) => b - a) untuk string
+// syntaks -> sort() atau sort((a, b) => a - b) untuk number
+const fruits3: string [] = ["apple", "banana", "cherry","orange"];
+fruits3.sort(); // dari awal ke akhir
+console.log(fruits3);
+console.log(fruits3.reverse()); // dari akhir ke awal
+
+const numbers3: number[] = [1, 4, 2, 3, 6, 5, 20];
+numbers3.sort((a, b) => a - b); // dari kecil ke besar, semisal mau dari besar ke kecil (b-a)
+console.log(numbers3);
+
+// INCLUDES -> mengecek value pada array ada atau tidak, hasil return nya adalah boolean
+const fruits4: string [] = ["apple", "banana", "cherry","orange"];
+console.log(fruits4.includes("banana"));// jika ada
+console.log(fruits4.includes("nanas"));// jika tidak ada\
+
+// MAP -> melakkukan looping pada array dan akan mereturn array baru
+const points: number[]= [1,2,3,4,5,6,7,8,9,10];
+const result3 = points.map((point) =>point * 2);
+console.log(result3);
+
+const students2 = [
+    {id:1, name:"oky"},
+    {id:2, name:"ari"},
+    {id:3, name:"dani"},
+];
+const result4 = students2.map((student, index) => {
+    return student.id;
+});// cara panjang / menggunakan kurung kurawa
+console.log(result4);
+
+
+const result5 = students2.map((student) => student.id);// cara pendek / tidak menggunakan kurung kurawa
+console.log(result5);
+
+// FOREACH -> melakukan looping pada array dan tidak mereturn array baru
+const fruits5: string [] = ["apple", "banana", "cherry","orange"];
+fruits5.forEach((fruit, index) => {
+    console.log(fruit);
+    console.log(index)
+});
+
+// FILTER -> melakukan filtering / looping pada array dan mereturn array baru berdasarkan kondiri pada return function
+const numbers4: number[] = [1,2,3,4,5,6,7,8,9,10];
+const result6 = numbers4.filter((number) => number > 5);
+console.log(result6);
+
+// FIND -> mencari value yang ditemukan pertama kali pada array
+const ages: number[] = [18, 25, 30, 35, 40];
+const result7 = ages.find((age) => age === 25);
+console.log(result7);
+
+const students3 = [
+    {id:1, name:"oky"},
+    {id:2, name:"ari"},
+    {id:3, name:"dani"},
+];
+const result8 = students3.find((student) => student.id === 2);
+console.log(result8);
+
+// FINDINDEX -> mirip kaya find tapi yang dihasilkan index nya 
+
+const students4 = [
+    {id:10, name:"oky"},
+    {id:100, name:"ari"},
+    {id:400, name:"dani"},
+];
+const result9 = students4.findIndex((student) => student.id === 100);
+console.log(result9);
+
+// REDUCE -> biasa digunakan untuk melakukan operasi aritmatika pada setiap isi array
+const numbers5: number[] = [1,2,3,4,5,6,7,8,9,10];
+const result10 = numbers5.reduce((a, b) => a + b, 0);
+console.log(result10);

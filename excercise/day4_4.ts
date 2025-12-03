@@ -113,3 +113,14 @@ function joinWords(words: string[]): string{
     return result;
 }
 console.log(result);
+
+// Write a function from a given array of numbers and return the second smallest number
+function secondSmallest(arr: number[]): number {
+    let smallest = Math.min(...arr);
+    let secondSmallest = Math.min(...arr.filter(num => num !== smallest));
+    return secondSmallest;
+}
+console.log(secondSmallest([5, 3, 1, 7, 2, 6]));
+// let angka = [5, 3, 1, 7, 2, 6];
+// let Min = Math.min(...angka);
+// console.log(Min);
