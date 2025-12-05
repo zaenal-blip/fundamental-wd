@@ -224,4 +224,82 @@ console.log(kendaraan.service())
 const kendaraan2 = new Vehicle("honda", "mobilio", "321-321-321");
 console.log(kendaraan2);
 console.log(kendaraan2.start());
-console.log(kendaraan2.service())
+console.log(kendaraan2.service());
+
+// ========== INHERITANCE ==========
+//Pewarisan dari parent class ke child class
+// property dan methode dari parent class dapat diakses di child class
+
+// TIDAK MENGGUNAKAN INHERITANCE
+class employee {
+    name:string
+    salary:number
+
+    constructor(fullName :string, salary:number){
+        this.name=fullName;
+        this.salary=salary;
+
+    }
+    work (){
+        console.log(`Employee ${this.name} is working`);
+    }
+}
+
+class Manager {
+    name:string
+    salary:number
+    departement:string
+
+    constructor(fullName :string, salary:number,departement:string){
+        this.name=fullName;
+        this.salary=salary;
+        this.departement;
+
+    }
+    work (){
+        console.log(`${this.name} is working`);
+    }
+}
+// (NEw) untuk buat object baru berdasarkan class
+// MENGGUNAKAN INHERITANCE
+class Employee2 {
+    name:string
+    salary:number
+
+    constructor(Name :string, salary:number){
+        this.name= Name;
+        this.salary=salary;
+
+    }
+    work (){
+        return `${this.name} is working`;
+    }
+}
+class Manager2 extends Employee2 { // extends digunakan untuk memanggil class parent
+    departement : string;
+
+    constructor(departement:string, Name :string, salary:number,){
+        super(Name, salary); // super() digunakan untuk memanggil constructor dari parent class
+        this.departement=departement; // ini adalah property tambahan
+    }
+}
+
+const  Manager3  = new Manager2("HR","John", 50000, );
+console.log(Manager3.departement);
+console.log(Manager3.name);
+console.log(Manager3.work());
+
+// ========== INSTANCE OF ==========
+// mengecek apakah sebuah objek memiliki hubungan ke class tertentu
+
+class Animal {}
+
+class Rabbit extends Animal {}
+
+class Tree {}
+
+const rabbit =  new Rabbit();
+
+console.log(rabbit instanceof Animal);
+console.log(rabbit instanceof Rabbit);
+console.log(rabbit instanceof Tree);
