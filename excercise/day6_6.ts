@@ -69,4 +69,43 @@ function calculateStudentData(studentData: any[]): any {
 console.log(calculateStudentData(studentData))
 
 
-//
+// EXCERCISE 2
+class Transaction implements ITransaction {
+  #total: number = 0;
+  cart: {
+    products: IProduct[];
+    qty: number;
+  } = {
+    products: [],
+    qty: 0,
+  };
+
+  addToCart = (product: IProduct, qty: number) => {
+    this.cart.products.push(product);
+    this.cart.qty += qty;
+    this.#total += qty * product.price;
+  };
+
+  showTotal = () => {
+    return this.#total;
+  };
+
+  checkout = () => {
+    const data = {
+      cart: { ...this.cart },
+      total: this.#total,
+    };
+
+    this.cart = { products: [], qty: 0 };
+    this.#total = 0;
+    return data;
+  };
+}
+
+const newTransaction = new Transaction();
+newTransaction.addToCart(new Product("Keyboard", 150000), 2);
+newTransaction.addToCart(new Product("Mouse", 100000), 2);
+console.log(newTransaction.showTotal()); // 500000
+
+console.log(newTransaction.checkout()); 
+console.log(newTransaction.checkout());
