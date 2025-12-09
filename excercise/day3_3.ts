@@ -8,7 +8,7 @@ if(odd % 2 === 0) {
     };
 
 //prime number or not
-let number = 19;
+let number = 1;
 let isPrime = true;
 
 if (number <= 1) {

@@ -70,42 +70,57 @@ console.log(calculateStudentData(studentData))
 
 
 // EXCERCISE 2
+interface IProduct {
+  name: string;
+  price: number;
+}
+
+class Product implements IProduct {
+  constructor(
+    public name: string,
+    public price: number
+  ) {}
+}
+
+interface ITransaction {
+  addToCart(product: IProduct, qty: number): void;
+  showTotal(): number;
+  checkout(): any;
+}
+
 class Transaction implements ITransaction {
   #total: number = 0;
-  cart: {
-    products: IProduct[];
-    qty: number;
-  } = {
-    products: [],
-    qty: 0,
-  };
 
-  addToCart = (product: IProduct, qty: number) => {
-    this.cart.products.push(product);
-    this.cart.qty += qty;
-    this.#total += qty * product.price;
-  };
+  cart: Array<{ product: IProduct; qty: number }> = [];
 
-  showTotal = () => {
+  addToCart(product: IProduct, qty: number) {
+    this.cart.push({ product, qty });
+    this.#total += product.price * qty;
+  }
+
+  showTotal() {
     return this.#total;
-  };
+  }
 
-  checkout = () => {
-    const data = {
-      cart: { ...this.cart },
+  checkout() {
+    const receipt = {
+      items: [...this.cart],
       total: this.#total,
     };
 
-    this.cart = { products: [], qty: 0 };
+    // Reset
+    this.cart = [];
     this.#total = 0;
-    return data;
-  };
+
+    return receipt;
+  }
 }
 
-const newTransaction = new Transaction();
-newTransaction.addToCart(new Product("Keyboard", 150000), 2);
-newTransaction.addToCart(new Product("Mouse", 100000), 2);
-console.log(newTransaction.showTotal()); // 500000
+const trx = new Transaction();
+trx.addToCart(new Product("Keyboard", 150000), 2);
+trx.addToCart(new Product("Mouse", 100000), 2);
 
-console.log(newTransaction.checkout()); 
-console.log(newTransaction.checkout());
+console.log(trx.showTotal()); 
+console.log(trx.checkout());
+console.log(trx.checkout());  
+
